@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>RETE树展示</title>
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/raphael.min.js"></script>
+    <script type="text/javascript" src="js/retediagram.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id='container'></div>
+<script type="text/javascript">
+    var json= {
+        "edges": [
+            {
+                "from": 1,
+                "to": 2
+            },
+            {
+                "from": 2,
+                "to": 3
+            },
+            {
+                "from": 3,
+                "to": 4
+            },
+            {
+                "from": 4,
+                "to": 5
+            },
+            {
+                "from": 5,
+                "to": 6
+            },
+            {
+                "from": 1,
+                "to": 2
+            },
+            {
+                "from": 2,
+                "to": 7
+            },
+            {
+                "from": 7,
+                "to": 8
+            },
+            {
+                "from": 8,
+                "to": 5
+            }
+        ],
+        "rootNode": {
+            "id": 1,
+            "label": "Enter",
+            "color": "#98AFC7",
+            "title": "起点",
+            "x": 120,
+            "y": 5,
+            "width": 30,
+            "height": 30,
+            "roundCorner": 10,
+            "children": [
+                {
+                    "id": 2,
+                    "label": "T",
+                    "title": "com.user",
+                    "color": "#97CBFF",
+                    "x": 120,
+                    "y": 80,
+                    "width": 30,
+                    "height": 30,
+                    "roundCorner": 5,
+                    "children": [
+                        {
+                            "id": 3,
+                            "label": "C",
+                            "title": "[变量]user.年龄【大于】[字符]1",
+                            "color": "#B3D9D9",
+                            "x": 70,
+                            "y": 160,
+                            "width": 30,
+                            "height": 30,
+                            "roundCorner": 30,
+                            "children": [
+                                {
+                                    "id": 4,
+                                    "label": "C",
+                                    "title": "[变量]user.年龄【小于等于】[字符]10",
+                                    "color": "#B3D9D9",
+                                    "x": 70,
+                                    "y": 240,
+                                    "width": 30,
+                                    "height": 30,
+                                    "roundCorner": 30,
+                                    "children": [
+                                        {
+                                            "id": 5,
+                                            "label": "OR",
+                                            "color": "#82D900",
+                                            "x": 120,
+                                            "y": 320,
+                                            "width": 30,
+                                            "height": 30,
+                                            "roundCorner": 15,
+                                            "children": [
+                                                {
+                                                    "id": 6,
+                                                    "label": "rule",
+                                                    "title": "rule",
+                                                    "color": "orange",
+                                                    "x": 120,
+                                                    "y": 400,
+                                                    "width": 30,
+                                                    "height": 30,
+                                                    "roundCorner": 0
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "label": "C",
+                            "title": "[变量]user.年龄【大于】[字符]30",
+                            "color": "#B3D9D9",
+                            "x": 150,
+                            "y": 160,
+                            "width": 30,
+                            "height": 30,
+                            "roundCorner": 30,
+                            "children": [
+                                {
+                                    "id": 8,
+                                    "label": "C",
+                                    "title": "[变量]user.年龄【小于等于】[字符]60",
+                                    "color": "#B3D9D9",
+                                    "x": 150,
+                                    "y": 240,
+                                    "width": 30,
+                                    "height": 30,
+                                    "roundCorner": 30
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "width": 710,
+        "height": 850
+    };
+    $(document).ready(function(){
+        drawReteDiagram('container',json);
+    });
+</script>
+</body>
+</html>
